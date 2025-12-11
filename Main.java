@@ -33,7 +33,7 @@ public class Main {
             System.out.print("Priority: ");
             int priority = sc.nextInt();
 
-            processes.add(new Process(name, arrival, burst, priority));
+            processes.add(new Process(name, arrival, burst, priority,quantum));
         }
         // شوف انت شغال علي ايه وفك كومنت بتاعه ورجع كومنت تاني لما ترفع علي git
         // ProcessRunner process=new ProcessRunner( new AGSecduler() );
