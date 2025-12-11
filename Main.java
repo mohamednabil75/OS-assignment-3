@@ -10,8 +10,6 @@ public class Main {
         System.out.print("Enter number of processes: ");
         int n = sc.nextInt();
 
-        System.out.print("Enter Round Robin Time Quantum: ");
-        int quantum = sc.nextInt();
 
         System.out.print("Enter Context Switching time: ");
         int contextSwitch = sc.nextInt();
@@ -33,6 +31,8 @@ public class Main {
             System.out.print("Priority: ");
             int priority = sc.nextInt();
 
+            System.out.print("Enter Round Robin Time Quantum: ");
+            int quantum = sc.nextInt();
             processes.add(new Process(name, arrival, burst, priority,quantum));
         }
         // شوف انت شغال علي ايه وفك كومنت بتاعه ورجع كومنت تاني لما ترفع علي git
