@@ -7,39 +7,28 @@ public class Main {
 
         Scanner sc = new Scanner(System.in);
 
-        System.out.print("Enter number of processes: ");
-        int n = sc.nextInt();
+        // System.out.print("Enter number of processes: ");
+        // int n = sc.nextInt();
 
-
-        System.out.print("Enter Context Switching time: ");
-        int contextSwitch = sc.nextInt();
 
         List<Process> processes = new ArrayList<>();
 
-        for (int i = 0; i < n; i++) {
-            System.out.println("\nProcess " + (i + 1) + " data:");
+        
+            processes.add(new Process("p1", 0, 8, 3,4));//  arrival burst priorty timequantum
+            processes.add(new Process("p2", 1, 4, 1,4));
+            processes.add(new Process("p3", 2, 2, 4,4));
+            processes.add(new Process("p4", 3, 1, 2,4));
+            processes.add(new Process("p5", 4, 3, 5,4));
 
-            System.out.print("Process Name: ");
-            String name = sc.next();
 
-            System.out.print("Arrival Time: ");
-            int arrival = sc.nextInt();
 
-            System.out.print("Burst Time: ");
-            int burst = sc.nextInt();
-
-            System.out.print("Priority: ");
-            int priority = sc.nextInt();
-
-            System.out.print("Enter Round Robin Time Quantum: ");
-            int quantum = sc.nextInt();
-            processes.add(new Process(name, arrival, burst, priority,quantum));
-        }
+        
         // شوف انت شغال علي ايه وفك كومنت بتاعه ورجع كومنت تاني لما ترفع علي git
         // ProcessRunner process=new ProcessRunner( new AGSecduler() );
         // ProcessRunner process=new ProcessRunner( new RoundRobin() );
         // ProcessRunner process=new ProcessRunner( new ShortestJob() );
         // ProcessRunner process=new ProcessRunner( new priortySchedule() );
+        process.processing(processes);
 
 
     }
