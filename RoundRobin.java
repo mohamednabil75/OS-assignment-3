@@ -1,5 +1,14 @@
 import java.util.*;
 class RoundRobin implements cpuSceduling {
+    private int RoundRobin=0;
+    private int CS=0;
+
+
+    public RoundRobin(int rb,int contextswitch) {
+        RoundRobin=rb;
+        CS=contextswitch;
+    }
+    
     
     // public void increase(Queue<Process> proc, int time) {
     //     for (Process p : proc) {  
@@ -13,9 +22,8 @@ class RoundRobin implements cpuSceduling {
         Queue<Process> proc=new LinkedList<>();
         for(Process p:processes){
             currenttime+=contextswitch;
-            // System.out.println(currenttime+" "+p.arrival);
-
-            while(p.arrival>=currenttime){
+            if(!proc.isEmpty())
+            while(p.arrival>=currenttime||p.arrival>proc.peek().waitingtime){
                 if(proc.isEmpty()){
                     contextswitch=0;
                     if(p.arrival==currenttime)break;
@@ -23,46 +31,47 @@ class RoundRobin implements cpuSceduling {
                 }
                 else{
                     Process current = proc.poll();
-                    currenttime+=Math.min(current.remaining,current.quantum);
-                    current.remaining-=Math.min(current.remaining,current.quantum);
-                    // increase(proc, Math.min(current.remaining,current.quantum));
-                    if(current.remaining!=0)proc.add(current);
-                    else{
-                        p.turnaroundtime=currenttime-p.arrival;
-                        // System.out.println("current time is "+currenttime);
-                    }
-                executionorder+=current.name+" ";
-
-                }
-            }
-            // p.waitingtime=currenttime-p.arrival;
-            // increase(proc, Math.min(p.remaining,p.quantum));
-            currenttime+=Math.min(p.remaining,p.quantum);
-            p.remaining-=Math.min(p.remaining,p.quantum);
-            contextswitch|=1;
-            if(p.remaining!=0)proc.add(p);
-            else{
-
-                p.turnaroundtime=currenttime-p.arrival;
-                }
-                executionorder+=p.name+" ";
-
-            
-            
-        }
-         while(!proc.isEmpty()){
-                    currenttime+=contextswitch;
-                    Process current = proc.poll();
-                    // increase(proc, Math.min(current.remaining,current.quantum));
-                    currenttime+=Math.min(current.remaining,current.quantum);
-                    current.remaining-=Math.min(current.remaining,current.quantum);
+                    currenttime+=Math.min(current.remaining,RoundRobin);
+                    current.remaining-=Math.min(current.remaining,RoundRobin);
+                    current.waitingtime=currenttime;
                     if(current.remaining!=0)proc.add(current);
                     else{
                         current.turnaroundtime=currenttime-current.arrival;
                     }
                 executionorder+=current.name+" ";
+                currenttime+=contextswitch;
+
+                }
+            }
+            currenttime+=Math.min(p.remaining,RoundRobin);
+            p.remaining-=Math.min(p.remaining,RoundRobin);
+            contextswitch=CS;
+            p.waitingtime=currenttime;
+            if(p.remaining!=0)proc.add(p);
+            else{
+
+                p.turnaroundtime=currenttime-p.arrival;
+
+                }
+                executionorder+=p.name+" ";            
+        }
+         while(!proc.isEmpty()){
+                    currenttime+=contextswitch;
+                    Process current = proc.poll();
+                    currenttime+=Math.min(current.remaining,RoundRobin);
+                    current.remaining-=Math.min(current.remaining,RoundRobin);
+                    if(current.remaining!=0)proc.add(current);
+                    else{
+                        current.turnaroundtime=currenttime-current.arrival;
+
+                    }
+                executionorder+=current.name+" ";
+
 
             }
+
+
+    //output
      double avgwaiting=0;
      double avground=0;
      for (Process p : processes) {  
