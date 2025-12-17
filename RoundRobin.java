@@ -1,5 +1,5 @@
 import java.util.*;
-class RoundRobin implements cpuSceduling {
+class RoundRobin implements CpuScheduling {
     private int RoundRobin=0;
     private int CS=0;
 

@@ -1,6 +1,6 @@
 import java.util.*;
 
-class ShortestJob implements cpuSceduling{
+class ShortestJob implements CpuScheduling{
     public void process(List<Process> processes){
         
     };

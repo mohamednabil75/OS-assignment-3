@@ -1,4 +1,5 @@
 import java.util.*;
-interface cpuSceduling{
+public interface CpuScheduling{
     public void process(List<Process> processes);
+
 }

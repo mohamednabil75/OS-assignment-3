@@ -1,6 +1,6 @@
 import java.util.*;
 
-class priortySchedule implements cpuSceduling{
+class priortySchedule implements CpuScheduling{
 
     public void process(List<Process> processes){
         

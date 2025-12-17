@@ -1,8 +1,8 @@
 import java.util.*;
 class  ProcessRunner{
-    public cpuSceduling cpuSc;
+    public CpuScheduling cpuSc;
 
-    public ProcessRunner(cpuSceduling cpuSC) {
+    public ProcessRunner(CpuScheduling cpuSC) {
         this.cpuSc=cpuSC;
     }
     

@@ -14,18 +14,18 @@ public class Main {
         List<Process> processes = new ArrayList<>();
 
         
-            processes.add(new Process("p1", 0, 8, 3));//  arrival burst priorty timequantum
-            processes.add(new Process("p2", 1, 4, 1));
-            processes.add(new Process("p3", 2, 2, 4));
-            processes.add(new Process("p4", 3, 1, 2));
-            processes.add(new Process("p5", 4, 3, 5));
+            processes.add(new Process("p1", 0, 17, 4,7));//  arrival burst priorty timequantum
+            processes.add(new Process("p2", 2, 6, 7,9));
+            processes.add(new Process("p3", 5, 11, 3,4));
+            processes.add(new Process("p4", 15, 4, 6,6));
+            //processes.add(new Process("p5", 0, 9, 5,4));
 
 
 
         
         // شوف انت شغال علي ايه وفك كومنت بتاعه ورجع كومنت تاني لما ترفع علي git
-        // ProcessRunner process=new ProcessRunner( new AGSecduler() );
-        ProcessRunner process=new ProcessRunner( new RoundRobin(2,1) );
+        ProcessRunner process=new ProcessRunner( new AGScheduler() );
+        //ProcessRunner process=new ProcessRunner( new RoundRobin(2,1) );
         // ProcessRunner process=new ProcessRunner( new ShortestJob() );
         // ProcessRunner process=new ProcessRunner( new priortySchedule() );
         process.processing(processes);
