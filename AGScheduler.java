@@ -37,8 +37,8 @@ class AGScheduler {
                 continue;
             }
             executeCurrentProcess();
-            PreemptionCase();
             currentTime++;
+            PreemptionCase();
         }
         
         printResults();
@@ -53,7 +53,9 @@ class AGScheduler {
         currentProcess.remaining--;
         currentProcess.usedQuantum++;
         timeTaken++;
-        //System.out.println("Now "+currentProcess.name + " executing remaining = " + currentProcess.remaining );
+        // System.out.println("Now "+currentProcess.name + " executing remaining at phase "+currentProcess.currentPhase +"and remaining =" + currentProcess.remaining );
+        // currentProcess.currentPhase = currentProcess.getCurrentPhase(currentProcess.usedQuantum);
+        // System.out.println("now in phase "+currentProcess.currentPhase);
         
         orderExecution.add(currentProcess.name);
         orderTime.add(currentTime);
@@ -73,6 +75,7 @@ class AGScheduler {
     }
     
 public void PreemptionCase(){
+    updateReadyQueue();
     if(currentProcess == null) return;
     
     int currentPhase = currentProcess.getCurrentPhase(currentProcess.usedQuantum);
@@ -87,7 +90,8 @@ public void PreemptionCase(){
         int phase1End = (int) Math.ceil(0.25 * currentProcess.quantum);
         if(currentProcess.usedQuantum == phase1End) {
             Process bestPriority = getHighPriority();
-            if(bestPriority != null && bestPriority.priority < currentProcess.priority){                
+            if(bestPriority != null &&!readyProcesses.isEmpty() &&bestPriority.priority < currentProcess.priority){    
+                //System.out.println("At enter of phase 2 " +currentProcess.name +" preempted by "+ bestPriority.name);            
                 int remainingQuantum = currentProcess.quantum - currentProcess.usedQuantum;
                 int quantumIncrease = (int)Math.ceil(remainingQuantum / 2.0);
                 currentProcess.quantum += quantumIncrease;
@@ -104,9 +108,15 @@ public void PreemptionCase(){
     }
     
     else if(currentPhase == 3){
+        //System.out.println("i reach here");
         Process bestSJ = getShortestjob();
+        // if(bestSJ == null){
+        //     System.out.println("null bestJ");
+        //     return ;
+        // }
+        //System.out.println("best SJ = " +bestSJ.name);
         if(bestSJ != null && bestSJ.remaining < currentProcess.remaining){
-            
+            //System.out.println("At phase 3 "+currentProcess.name + " preempted by "+bestSJ.name);
             int remainingQuantum = currentProcess.quantum - currentProcess.usedQuantum;
             currentProcess.quantum += remainingQuantum;
             currentProcess.quantumHistory.add(currentProcess.quantum) ;
@@ -180,7 +190,7 @@ public void PreemptionCase(){
         if(currentProcess != null && 
            currentProcess.usedQuantum >= currentProcess.quantum && 
            currentProcess.remaining > 0){
-            
+            //System.out.println(currentProcess.name + " exhausted");
             currentProcess.quantum += 2;
             currentProcess.currentPhase = 1 ;
             currentProcess.usedQuantum = 0 ;
