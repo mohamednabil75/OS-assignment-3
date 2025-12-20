@@ -21,12 +21,13 @@ public class Main {
         //processes.add(new Process("P5", 4, 8, 6, 15));   // arrival 4, burst 8, priority 6, quantum 15
         //processes.add(new Process("P6", 5, 3, 3, 9));
 
-        processes.add(new Process("P1", 0, 25, 3, 5));
-        processes.add(new Process("P2", 1, 18, 2, 4));
-        processes.add(new Process("P3", 3, 22, 4, 6));
-        processes.add(new Process("P4", 5, 15, 1, 3));
-        processes.add(new Process("P5", 8, 20, 5, 7));
-        processes.add(new Process("P6", 12, 12, 6, 4));
+        processes.add(new Process("P1", 0, 14, 4, 6));
+        processes.add(new Process("P2", 4, 9, 2, 8));
+        processes.add(new Process("P3", 7, 16, 5, 5));
+        processes.add(new Process("P4", 10, 7, 1, 10));
+        processes.add(new Process("P5", 15, 11, 3, 4));
+        processes.add(new Process("P6", 20, 5, 6, 7));
+        processes.add(new Process("P7", 25, 8, 7, 9));
 
 
         //processes.add(new Process("P1", 0, 3, 2, 10));

@@ -1,4 +1,24 @@
 import java.util.*;
+class AGResult {
+    List<String> executionOrder;
+    List<ProcessResult> processResults;
+    double averageWaitingTime;
+    double averageTurnaroundTime;
+}
+
+class ProcessResult {
+    String name;
+    int waitingTime;
+    int turnaroundTime;
+    List<Integer> quantumHistory;
+
+    ProcessResult(Process p) {
+        this.name = p.name;
+        this.waitingTime = p.waitingtime;
+        this.turnaroundTime = p.turnaroundtime;
+        this.quantumHistory = new ArrayList<>(p.quantumHistory);
+    }
+}
 
 class AGScheduler {
     public List<Process> processes;
@@ -41,7 +61,7 @@ class AGScheduler {
             PreemptionCase();
         }
         
-        printResults();
+        //printResults();
     }
     
     public void executeCurrentProcess() {
@@ -217,39 +237,72 @@ public void PreemptionCase(){
         // }
         // System.out.println();
     }
-    
-    public void printResults() {
+    public AGResult getResults() {
 
-        if(orderExecution.isEmpty()){
-            return ;
-        }
-        completedProcesses.sort((p1, p2) -> p1.name.compareTo(p2.name));
-        System.out.println("\nExecution Order:");
-        System.out.print(orderExecution.get(0) + " ");
-        for(int i = 1; i < orderExecution.size(); i++){
-            if(orderExecution.get(i) == orderExecution.get(i-1)){
-                continue ;
-            }
-            System.out.print(orderExecution.get(i) + " ");
-        }
-        System.out.println();
-                
-        int totalTurnaround = 0;
-        int totalWaiting = 0;
-        
-        for(Process p : completedProcesses){
-            System.out.print(p.name + " waiting time = " + p.waitingtime +  " and turnaround time = " + p.turnaroundtime + " Quantum history -> " );
-            p.displayQuantumHistory();
-            totalTurnaround += p.turnaroundtime;
-            totalWaiting += p.waitingtime;
-        }
-        System.out.println();
-        
-        if(!completedProcesses.isEmpty()){
-            System.out.println("Average waiting time = " + 
-            (double)totalWaiting/completedProcesses.size());
-            System.out.println("Average turnaround time = " + 
-            (double)totalTurnaround/completedProcesses.size());
+    AGResult result = new AGResult();
+
+    // execution order (remove duplicates)
+    List<String> exec = new ArrayList<>();
+    exec.add(orderExecution.get(0));
+    for (int i = 1; i < orderExecution.size(); i++) {
+        if (!orderExecution.get(i).equals(orderExecution.get(i - 1))) {
+            exec.add(orderExecution.get(i));
         }
     }
+    result.executionOrder = exec;
+
+    // process results
+    completedProcesses.sort((a, b) -> a.name.compareTo(b.name));
+    List<ProcessResult> pr = new ArrayList<>();
+
+    int totalWaiting = 0, totalTurnaround = 0;
+
+    for (Process p : completedProcesses) {
+        pr.add(new ProcessResult(p));
+        totalWaiting += p.waitingtime;
+        totalTurnaround += p.turnaroundtime;
+    }
+
+    result.processResults = pr;
+    result.averageWaitingTime = (double) totalWaiting / completedProcesses.size();
+    result.averageTurnaroundTime = (double) totalTurnaround / completedProcesses.size();
+
+    return result;
+}
+
+    
+    // public void printResults() {
+
+    //     if(orderExecution.isEmpty()){
+    //         return ;
+    //     }
+    //     completedProcesses.sort((p1, p2) -> p1.name.compareTo(p2.name));
+    //     System.out.println("\nExecution Order:");
+    //     System.out.print(orderExecution.get(0) + " ");
+    //     for(int i = 1; i < orderExecution.size(); i++){
+    //         if(orderExecution.get(i) == orderExecution.get(i-1)){
+    //             continue ;
+    //         }
+    //         System.out.print(orderExecution.get(i) + " ");
+    //     }
+    //     System.out.println();
+                
+    //     int totalTurnaround = 0;
+    //     int totalWaiting = 0;
+        
+    //     for(Process p : completedProcesses){
+    //         System.out.print(p.name + " waiting time = " + p.waitingtime +  " and turnaround time = " + p.turnaroundtime + " Quantum history -> " );
+    //         p.displayQuantumHistory();
+    //         totalTurnaround += p.turnaroundtime;
+    //         totalWaiting += p.waitingtime;
+    //     }
+    //     System.out.println();
+        
+    //     if(!completedProcesses.isEmpty()){
+    //         System.out.println("Average waiting time = " + 
+    //         (double)totalWaiting/completedProcesses.size());
+    //         System.out.println("Average turnaround time = " + 
+    //         (double)totalTurnaround/completedProcesses.size());
+    //     }
+    // }
 }
