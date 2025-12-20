@@ -21,32 +21,32 @@ public class Main {
         //processes.add(new Process("P5", 4, 8, 6, 15));   // arrival 4, burst 8, priority 6, quantum 15
         //processes.add(new Process("P6", 5, 3, 3, 9));
 
-        processes.add(new Process("P1", 0, 14, 4, 6));
-        processes.add(new Process("P2", 4, 9, 2, 8));
-        processes.add(new Process("P3", 7, 16, 5, 5));
-        processes.add(new Process("P4", 10, 7, 1, 10));
-        processes.add(new Process("P5", 15, 11, 3, 4));
-        processes.add(new Process("P6", 20, 5, 6, 7));
-        processes.add(new Process("P7", 25, 8, 7, 9));
+        // processes.add(new Process("P1", 0, 14, 4, 6));
+        // processes.add(new Process("P2", 4, 9, 2, 8));
+        // processes.add(new Process("P3", 7, 16, 5, 5));
+        // processes.add(new Process("P4", 10, 7, 1, 10));
+        // processes.add(new Process("P5", 15, 11, 3, 4));
+        // processes.add(new Process("P6", 20, 5, 6, 7));
+        // processes.add(new Process("P7", 25, 8, 7, 9));
 
 
-        //processes.add(new Process("P1", 0, 3, 2, 10));
-        //processes.add(new Process("P2", 2, 4, 3, 12));
-        //processes.add(new Process("P3", 5, 2, 1, 8));
-       //processes.add(new Process("P4", 8, 5, 4, 15));
-       //processes.add(new Process("P5", 12, 3, 5, 9));
-            //processes.add(new Process("p5", 0, 9, 5,4));
+        processes.add(new Process("P1", 0, 3, 2, 10));
+        processes.add(new Process("P2", 2, 4, 3, 12));
+        processes.add(new Process("P3", 5, 2, 1, 8));
+       processes.add(new Process("P4", 8, 5, 4, 15));
+       processes.add(new Process("P5", 12, 3, 5, 9));
+            processes.add(new Process("p5", 0, 9, 5,4));
 
 
 
         
         // شوف انت شغال علي ايه وفك كومنت بتاعه ورجع كومنت تاني لما ترفع علي git
-        // ProcessRunner process=new ProcessRunner( new AGScheduler() );
-        AGScheduler agScheduler = new AGScheduler(processes) ;
+         ProcessRunner p =new ProcessRunner( new ShortestJob() );
+        //AGScheduler agScheduler = new AGScheduler(processes) ;
         //ProcessRunner process=new ProcessRunner( new RoundRobin(2,1) );
         // ProcessRunner process=new ProcessRunner( new ShortestJob() );
         // ProcessRunner process=new ProcessRunner( new priortySchedule() );
-        agScheduler.process();
+        p.processing(processes);
 
 
     }

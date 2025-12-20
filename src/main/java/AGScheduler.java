@@ -237,11 +237,17 @@ public void PreemptionCase(){
         // }
         // System.out.println();
     }
-    public AGResult getResults() {
-
+public AGResult getResults() {
     AGResult result = new AGResult();
 
-    // execution order (remove duplicates)
+    if (orderExecution == null || orderExecution.isEmpty()) {
+        result.executionOrder = new ArrayList<>();
+        result.processResults = new ArrayList<>();
+        result.averageWaitingTime = 0.0;
+        result.averageTurnaroundTime = 0.0;
+        return result;
+    }
+
     List<String> exec = new ArrayList<>();
     exec.add(orderExecution.get(0));
     for (int i = 1; i < orderExecution.size(); i++) {
@@ -251,26 +257,29 @@ public void PreemptionCase(){
     }
     result.executionOrder = exec;
 
-    // process results
-    completedProcesses.sort((a, b) -> a.name.compareTo(b.name));
-    List<ProcessResult> pr = new ArrayList<>();
+    if (completedProcesses != null && !completedProcesses.isEmpty()) {
+        completedProcesses.sort((a, b) -> a.name.compareTo(b.name));
+        List<ProcessResult> pr = new ArrayList<>();
 
-    int totalWaiting = 0, totalTurnaround = 0;
+        int totalWaiting = 0, totalTurnaround = 0;
 
-    for (Process p : completedProcesses) {
-        pr.add(new ProcessResult(p));
-        totalWaiting += p.waitingtime;
-        totalTurnaround += p.turnaroundtime;
+        for (Process p : completedProcesses) {
+            pr.add(new ProcessResult(p));
+            totalWaiting += p.waitingtime;
+            totalTurnaround += p.turnaroundtime;
+        }
+
+        result.processResults = pr;
+        result.averageWaitingTime = (double) totalWaiting / completedProcesses.size();
+        result.averageTurnaroundTime = (double) totalTurnaround / completedProcesses.size();
+    } else {
+        result.processResults = new ArrayList<>();
+        result.averageWaitingTime = 0.0;
+        result.averageTurnaroundTime = 0.0;
     }
 
-    result.processResults = pr;
-    result.averageWaitingTime = (double) totalWaiting / completedProcesses.size();
-    result.averageTurnaroundTime = (double) totalTurnaround / completedProcesses.size();
-
     return result;
-}
-
-    
+}    
     // public void printResults() {
 
     //     if(orderExecution.isEmpty()){

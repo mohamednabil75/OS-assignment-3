@@ -1,0 +1,10 @@
+Main.class
+ProcessRunner.class
+RoundRobin.class
+ProcessResult.class
+AGScheduler.class
+CpuScheduling.class
+ShortestJob.class
+priortySchedule.class
+AGResult.class
+Process.class
