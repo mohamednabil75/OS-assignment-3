@@ -22,7 +22,7 @@ class ProcessResult {
 
 class AGScheduler {
     public List<Process> processes;
-    public List<Process> readyProcesses;
+    public LinkedList<Process> readyProcesses;
     public List<Process> completedProcesses;
     public List<String> orderExecution; 
     public List<Integer> orderTime;
@@ -37,7 +37,7 @@ class AGScheduler {
         timeTaken = 0;
         completed = 0;
         currentProcess = null;
-        readyProcesses = new ArrayList<>();
+        readyProcesses = new LinkedList<>();
         orderExecution = new ArrayList<>();
         completedProcesses = new ArrayList<>();
         orderTime = new ArrayList<>();
@@ -61,7 +61,7 @@ class AGScheduler {
             PreemptionCase();
         }
         
-        //printResults();
+        printResults();
     }
     
     public void executeCurrentProcess() {
@@ -280,38 +280,38 @@ public AGResult getResults() {
 
     return result;
 }    
-    // public void printResults() {
+    public void printResults() {
 
-    //     if(orderExecution.isEmpty()){
-    //         return ;
-    //     }
-    //     completedProcesses.sort((p1, p2) -> p1.name.compareTo(p2.name));
-    //     System.out.println("\nExecution Order:");
-    //     System.out.print(orderExecution.get(0) + " ");
-    //     for(int i = 1; i < orderExecution.size(); i++){
-    //         if(orderExecution.get(i) == orderExecution.get(i-1)){
-    //             continue ;
-    //         }
-    //         System.out.print(orderExecution.get(i) + " ");
-    //     }
-    //     System.out.println();
+        if(orderExecution.isEmpty()){
+            return ;
+        }
+        completedProcesses.sort((p1, p2) -> p1.name.compareTo(p2.name));
+        System.out.println("\nExecution Order:");
+        System.out.print(orderExecution.get(0) + " ");
+        for(int i = 1; i < orderExecution.size(); i++){
+            if(orderExecution.get(i) == orderExecution.get(i-1)){
+                continue ;
+            }
+            System.out.print(orderExecution.get(i) + " ");
+        }
+        System.out.println();
                 
-    //     int totalTurnaround = 0;
-    //     int totalWaiting = 0;
+        int totalTurnaround = 0;
+        int totalWaiting = 0;
         
-    //     for(Process p : completedProcesses){
-    //         System.out.print(p.name + " waiting time = " + p.waitingtime +  " and turnaround time = " + p.turnaroundtime + " Quantum history -> " );
-    //         p.displayQuantumHistory();
-    //         totalTurnaround += p.turnaroundtime;
-    //         totalWaiting += p.waitingtime;
-    //     }
-    //     System.out.println();
+        for(Process p : completedProcesses){
+            System.out.print(p.name + " waiting time = " + p.waitingtime +  " and turnaround time = " + p.turnaroundtime + " Quantum history -> " );
+            p.displayQuantumHistory();
+            totalTurnaround += p.turnaroundtime;
+            totalWaiting += p.waitingtime;
+        }
+        System.out.println();
         
-    //     if(!completedProcesses.isEmpty()){
-    //         System.out.println("Average waiting time = " + 
-    //         (double)totalWaiting/completedProcesses.size());
-    //         System.out.println("Average turnaround time = " + 
-    //         (double)totalTurnaround/completedProcesses.size());
-    //     }
-    // }
+        if(!completedProcesses.isEmpty()){
+            System.out.println("Average waiting time = " + 
+            (double)totalWaiting/completedProcesses.size());
+            System.out.println("Average turnaround time = " + 
+            (double)totalTurnaround/completedProcesses.size());
+        }
+    }
 }

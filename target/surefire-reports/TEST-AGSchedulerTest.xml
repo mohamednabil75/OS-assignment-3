@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="AGSchedulerTest" time="0.168" tests="8" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="AGSchedulerTest" time="0.255" tests="8" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="23"/>
     <property name="sun.cpu.isalist" value="amd64"/>
@@ -15,7 +15,7 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="US"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk-23\bin"/>
-    <property name="sun.java.command" value="C:\Users\seif\AppData\Local\Temp\surefire1135985919835337382\surefirebooter-20251220220504282_3.jar C:\Users\seif\AppData\Local\Temp\surefire1135985919835337382 2025-12-20T22-05-04_077-jvmRun1 surefire-20251220220504282_1tmp surefire_0-20251220220504282_2tmp"/>
+    <property name="sun.java.command" value="C:\Users\seif\AppData\Local\Temp\surefire5422998911614985665\surefirebooter-20251221124926197_3.jar C:\Users\seif\AppData\Local\Temp\surefire5422998911614985665 2025-12-21T12-49-26_028-jvmRun1 surefire-20251221124926197_1tmp surefire_0-20251221124926197_2tmp"/>
     <property name="jdk.debug" value="release"/>
     <property name="surefire.test.class.path" value="D:\OS_Assignment\OS-assignment-3\target\test-classes;D:\OS_Assignment\OS-assignment-3\target\classes;C:\Users\seif\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.9.2\junit-jupiter-api-5.9.2.jar;C:\Users\seif\.m2\repository\org\opentest4j\opentest4j\1.2.0\opentest4j-1.2.0.jar;C:\Users\seif\.m2\repository\org\junit\platform\junit-platform-commons\1.9.2\junit-platform-commons-1.9.2.jar;C:\Users\seif\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;C:\Users\seif\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.9.2\junit-jupiter-engine-5.9.2.jar;C:\Users\seif\.m2\repository\org\junit\platform\junit-platform-engine\1.9.2\junit-platform-engine-1.9.2.jar;C:\Users\seif\.m2\repository\org\junit\jupiter\junit-jupiter-params\5.9.2\junit-jupiter-params-5.9.2.jar;C:\Users\seif\.m2\repository\com\google\code\gson\gson\2.10.1\gson-2.10.1.jar;"/>
     <property name="sun.cpu.endian" value="little"/>
@@ -30,7 +30,7 @@
     <property name="line.separator" value="&#10;"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
-    <property name="surefire.real.class.path" value="C:\Users\seif\AppData\Local\Temp\surefire1135985919835337382\surefirebooter-20251220220504282_3.jar"/>
+    <property name="surefire.real.class.path" value="C:\Users\seif\AppData\Local\Temp\surefire5422998911614985665\surefirebooter-20251221124926197_3.jar"/>
     <property name="user.script" value=""/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="java.runtime.version" value="23.0.2+7-58"/>
@@ -58,42 +58,120 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="67.0"/>
   </properties>
-  <testcase name="testSingleProcess" classname="AGSchedulerTest" time="0.035"/>
-  <testcase name="testAG_test1" classname="AGSchedulerTest" time="0.027">
+  <testcase name="testSingleProcess" classname="AGSchedulerTest" time="0.047">
+    <system-out><![CDATA[
+Execution Order:
+P1 
+P1 waiting time = 0 and turnaround time = 5 Quantum history -> 10 0 
+
+Average waiting time = 0.0
+Average turnaround time = 5.0
+]]></system-out>
+  </testcase>
+  <testcase name="testAG_test1" classname="AGSchedulerTest" time="0.037">
     <system-out><![CDATA[
 === Running Test: AG_test1.json ===
+
+Execution Order:
+P1 P2 P3 P2 P1 P3 P4 P3 P1 P4 
+P1 waiting time = 19 and turnaround time = 36 Quantum history -> 7 10 14 0 
+P2 waiting time = 4 and turnaround time = 10 Quantum history -> 9 12 0 
+P3 waiting time = 10 and turnaround time = 21 Quantum history -> 4 6 8 0 
+P4 waiting time = 19 and turnaround time = 23 Quantum history -> 6 8 0 
+
+Average waiting time = 13.0
+Average turnaround time = 22.5
 ✓ Test passed: AG_test1.json
 ]]></system-out>
   </testcase>
-  <testcase name="testAG_test2" classname="AGSchedulerTest" time="0.006">
+  <testcase name="testAG_test2" classname="AGSchedulerTest" time="0.011">
     <system-out><![CDATA[
 === Running Test: AG_test2.json ===
+
+Execution Order:
+P1 P2 P3 P2 P4 P3 P4 P3 P5 P1 P4 P1 P5 P4 P5 
+P1 waiting time = 25 and turnaround time = 35 Quantum history -> 4 6 8 0 
+P2 waiting time = 3 and turnaround time = 11 Quantum history -> 5 7 0 
+P3 waiting time = 11 and turnaround time = 23 Quantum history -> 6 8 12 0 
+P4 waiting time = 33 and turnaround time = 39 Quantum history -> 3 4 6 8 0 
+P5 waiting time = 36 and turnaround time = 45 Quantum history -> 4 6 8 0 
+
+Average waiting time = 21.6
+Average turnaround time = 30.6
 ✓ Test passed: AG_test2.json
 ]]></system-out>
   </testcase>
-  <testcase name="testAG_test3" classname="AGSchedulerTest" time="0.006">
+  <testcase name="testAG_test3" classname="AGSchedulerTest" time="0.003">
     <system-out><![CDATA[
 === Running Test: AG_test3.json ===
+
+Execution Order:
+P1 P2 P1 P4 P3 P1 P6 P5 P6 P1 P5 
+P1 waiting time = 17 and turnaround time = 37 Quantum history -> 8 12 17 23 0 
+P2 waiting time = 1 and turnaround time = 5 Quantum history -> 6 0 
+P3 waiting time = 7 and turnaround time = 10 Quantum history -> 5 0 
+P4 waiting time = 1 and turnaround time = 3 Quantum history -> 4 0 
+P5 waiting time = 20 and turnaround time = 25 Quantum history -> 7 10 0 
+P6 waiting time = 3 and turnaround time = 9 Quantum history -> 3 5 0 
+
+Average waiting time = 8.166666666666666
+Average turnaround time = 14.833333333333334
 ✓ Test passed: AG_test3.json
 ]]></system-out>
   </testcase>
-  <testcase name="testAG_test4" classname="AGSchedulerTest" time="0.006">
+  <testcase name="testAG_test4" classname="AGSchedulerTest" time="0.018">
     <system-out><![CDATA[
 === Running Test: AG_test4.json ===
+
+Execution Order:
+P1 P2 P3 P2 P4 P5 
+P1 waiting time = 0 and turnaround time = 3 Quantum history -> 10 0 
+P2 waiting time = 3 and turnaround time = 7 Quantum history -> 12 17 0 
+P3 waiting time = 1 and turnaround time = 3 Quantum history -> 8 0 
+P4 waiting time = 1 and turnaround time = 6 Quantum history -> 15 0 
+P5 waiting time = 2 and turnaround time = 5 Quantum history -> 9 0 
+
+Average waiting time = 1.4
+Average turnaround time = 4.8
 ✓ Test passed: AG_test4.json
 ]]></system-out>
   </testcase>
-  <testcase name="testAG_test5" classname="AGSchedulerTest" time="0.006">
+  <testcase name="testAG_test5" classname="AGSchedulerTest" time="0.013">
     <system-out><![CDATA[
 === Running Test: AG_test5.json ===
+
+Execution Order:
+P1 P2 P1 P4 P3 P4 P2 P4 P5 P2 P1 P2 P6 P1 P3 P1 P5 P3 P6 P3 P5 P6 P5 P6 
+P1 waiting time = 40 and turnaround time = 65 Quantum history -> 5 7 10 14 16 0 
+P2 waiting time = 25 and turnaround time = 43 Quantum history -> 4 6 8 10 0 
+P3 waiting time = 63 and turnaround time = 85 Quantum history -> 6 8 11 16 0 
+P4 waiting time = 7 and turnaround time = 22 Quantum history -> 3 5 7 0 
+P5 waiting time = 77 and turnaround time = 97 Quantum history -> 7 10 14 16 0 
+P6 waiting time = 88 and turnaround time = 100 Quantum history -> 4 6 8 11 0 
+
+Average waiting time = 50.0
+Average turnaround time = 68.66666666666667
 ✓ Test passed: AG_test5.json
 ]]></system-out>
   </testcase>
-  <testcase name="testAG_test6" classname="AGSchedulerTest" time="0.007">
+  <testcase name="testAG_test6" classname="AGSchedulerTest" time="0.009">
     <system-out><![CDATA[
 === Running Test: AG_test6.json ===
+
+Execution Order:
+P1 P2 P1 P4 P3 P2 P1 P5 P6 P5 P6 P3 P5 P7 P1 P3 P7 P3 P7 
+P1 waiting time = 39 and turnaround time = 53 Quantum history -> 6 8 11 15 0 
+P2 waiting time = 11 and turnaround time = 20 Quantum history -> 8 10 0 
+P3 waiting time = 45 and turnaround time = 61 Quantum history -> 5 7 10 14 0 
+P4 waiting time = 4 and turnaround time = 11 Quantum history -> 10 0 
+P5 waiting time = 19 and turnaround time = 30 Quantum history -> 4 6 8 0 
+P6 waiting time = 13 and turnaround time = 18 Quantum history -> 7 10 0 
+P7 waiting time = 37 and turnaround time = 45 Quantum history -> 9 12 17 0 
+
+Average waiting time = 24.0
+Average turnaround time = 34.0
 ✓ Test passed: AG_test6.json
 ]]></system-out>
   </testcase>
-  <testcase name="testEmptyProcessList" classname="AGSchedulerTest" time="0.006"/>
+  <testcase name="testEmptyProcessList" classname="AGSchedulerTest" time="0.004"/>
 </testsuite>

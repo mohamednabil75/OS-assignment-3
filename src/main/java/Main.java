@@ -30,23 +30,24 @@ public class Main {
         // processes.add(new Process("P7", 25, 8, 7, 9));
 
 
-        processes.add(new Process("P1", 0, 3, 2, 10));
-        processes.add(new Process("P2", 2, 4, 3, 12));
-        processes.add(new Process("P3", 5, 2, 1, 8));
-       processes.add(new Process("P4", 8, 5, 4, 15));
-       processes.add(new Process("P5", 12, 3, 5, 9));
-            processes.add(new Process("p5", 0, 9, 5,4));
+    //     processes.add(new Process("P1", 0, 3, 2, 10));
+    //     processes.add(new Process("P2", 2, 4, 3, 12));
+    //     processes.add(new Process("P3", 5, 2, 1, 8));
+    //    processes.add(new Process("P4", 8, 5, 4, 15));
+    //    processes.add(new Process("P5", 12, 3, 5, 9));
+    //         processes.add(new Process("p5", 0, 9, 5,4));
 
 
 
         
         // شوف انت شغال علي ايه وفك كومنت بتاعه ورجع كومنت تاني لما ترفع علي git
-         ProcessRunner p =new ProcessRunner( new ShortestJob() );
-        //AGScheduler agScheduler = new AGScheduler(processes) ;
+        // ProcessRunner p =new ProcessRunner( new ShortestJob() );
+        AGScheduler agScheduler = new AGScheduler(processes) ;
         //ProcessRunner process=new ProcessRunner( new RoundRobin(2,1) );
         // ProcessRunner process=new ProcessRunner( new ShortestJob() );
         // ProcessRunner process=new ProcessRunner( new priortySchedule() );
-        p.processing(processes);
+        //p.processing(processes);
+        agScheduler.process();
 
 
     }
