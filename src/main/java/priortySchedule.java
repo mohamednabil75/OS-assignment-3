@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 
-class priortySchedule implements CpuScheduling{
+class priortySchedule {
      int Aging;
      int contextswitch;
      List<Process> processes ;
@@ -70,7 +70,6 @@ class priortySchedule implements CpuScheduling{
     }
 
     public void process(){
-         String executionorder="";
         int currenttime[]={0};
         List<Process> ready=new ArrayList<>();
         List<Process> copied=new ArrayList<>();
@@ -137,8 +136,8 @@ class priortySchedule implements CpuScheduling{
         processes=copied;
 
     }
-    public SchedulerResult getResult(){
-        SchedulerResult result = new SchedulerResult();
+    public Result getResults() {
+    Result result = new Result();
 
     if (order == null || order.isEmpty()) {
         result.executionOrder = new ArrayList<>();
@@ -159,12 +158,12 @@ class priortySchedule implements CpuScheduling{
 
     if (processes != null && !processes.isEmpty()) {
         processes.sort((a, b) -> a.name.compareTo(b.name));
-        List<ProcessResult> pr = new ArrayList<>();
+        List<processResult2> pr = new ArrayList<>();
 
         int totalWaiting = 0, totalTurnaround = 0;
 
         for (Process p : processes) {
-            pr.add(new ProcessResult(p));
+            pr.add(new processResult2(p));
             totalWaiting += p.waitingtime;
             totalTurnaround += p.turnaroundtime;
         }
@@ -179,7 +178,6 @@ class priortySchedule implements CpuScheduling{
     }
 
     return result;
-    }
+}    
 };
-
 

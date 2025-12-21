@@ -6,7 +6,7 @@ class  ProcessRunner{
         this.cpuSc=cpuSC;
     }
     
-    public void processing(List<Process> processes){
-        cpuSc.process(processes);
+    public void processing(){
+        cpuSc.process();
     };
 }

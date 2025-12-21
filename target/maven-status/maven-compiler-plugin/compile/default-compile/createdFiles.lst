@@ -4,7 +4,9 @@ RoundRobin.class
 ProcessResult.class
 AGScheduler.class
 CpuScheduling.class
+Result.class
 ShortestJob.class
 priortySchedule.class
+processResult2.class
 AGResult.class
 Process.class

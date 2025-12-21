@@ -2,11 +2,15 @@ import java.util.*;
 class RoundRobin implements CpuScheduling {
     private int RoundRobin=0;
     private int CS=0;
+    List<Process> processes ;
+    List<String> order ;
 
 
-    public RoundRobin(int rb,int contextswitch) {
+    public RoundRobin(int rb,int contextswitch , List<Process> processes) {
         RoundRobin=rb;
         CS=contextswitch;
+        this.processes = processes ;
+        order = new ArrayList<>() ;
     }
     
     
@@ -15,8 +19,7 @@ class RoundRobin implements CpuScheduling {
     //         p.waitingtime += time;    
     //     }
     // }
-    public void process(List<Process> processes) {
-        String executionorder="";
+    public void process() {
         int currenttime=0;
         int contextswitch=0;
         Queue<Process> proc=new LinkedList<>();
@@ -38,7 +41,7 @@ class RoundRobin implements CpuScheduling {
                     else{
                         current.turnaroundtime=currenttime-current.arrival;
                     }
-                executionorder+=current.name+" ";
+                order.add(current.name) ;
                 currenttime+=contextswitch;
 
                 }
@@ -53,7 +56,7 @@ class RoundRobin implements CpuScheduling {
                 p.turnaroundtime=currenttime-p.arrival;
 
                 }
-                executionorder+=p.name+" ";            
+                order.add(p.name) ;        
         }
          while(!proc.isEmpty()){
                     currenttime+=contextswitch;
@@ -65,7 +68,7 @@ class RoundRobin implements CpuScheduling {
                         current.turnaroundtime=currenttime-current.arrival;
 
                     }
-                executionorder+=current.name+" ";
+                order.add(current.name) ;
 
 
             }
@@ -81,9 +84,56 @@ class RoundRobin implements CpuScheduling {
             avgwaiting+=p.waitingtime;
             avground+=p.turnaroundtime;
         }       
-        System.out.println(executionorder);
+        for(String s :order){
+            System.err.print(s + " ");
+        }
+        System.out.println();
         System.out.println("avg waiting = "+avgwaiting/(double)processes.size());
         System.out.println("avg turnaround time = "+avground/(double)processes.size());
 
     }
+    public Result getResults() {
+    Result result = new Result();
+
+    if (order == null || order.isEmpty()) {
+        result.executionOrder = new ArrayList<>();
+        result.processResults = new ArrayList<>();
+        result.averageWaitingTime = 0.0;
+        result.averageTurnaroundTime = 0.0;
+        return result;
+    }
+
+    List<String> exec = new ArrayList<>();
+    exec.add(order.get(0));
+    for (int i = 1; i < order.size(); i++) {
+        if (!order.get(i).equals(order.get(i - 1))) {
+            exec.add(order.get(i));
+        }
+    }
+    result.executionOrder = exec;
+
+    if (processes != null && !processes.isEmpty()) {
+        processes.sort((a, b) -> a.name.compareTo(b.name));
+        List<processResult2> pr = new ArrayList<>();
+
+        int totalWaiting = 0, totalTurnaround = 0;
+
+        for (Process p : processes) {
+            pr.add(new processResult2(p));
+            totalWaiting += p.waitingtime;
+            totalTurnaround += p.turnaroundtime;
+        }
+
+        result.processResults = pr;
+        result.averageWaitingTime = (double) totalWaiting / processes.size();
+        result.averageTurnaroundTime = (double) totalTurnaround / processes.size();
+    } else {
+        result.processResults = new ArrayList<>();
+        result.averageWaitingTime = 0.0;
+        result.averageTurnaroundTime = 0.0;
+    }
+
+    return result;
+}    
+
 }

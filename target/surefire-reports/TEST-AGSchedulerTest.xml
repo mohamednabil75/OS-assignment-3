@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="AGSchedulerTest" time="0.255" tests="8" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="AGSchedulerTest" time="0.365" tests="6" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="23"/>
     <property name="sun.cpu.isalist" value="amd64"/>
     <property name="sun.jnu.encoding" value="Cp1252"/>
-    <property name="java.class.path" value="D:\OS_Assignment\OS-assignment-3\target\test-classes;D:\OS_Assignment\OS-assignment-3\target\classes;C:\Users\seif\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.9.2\junit-jupiter-api-5.9.2.jar;C:\Users\seif\.m2\repository\org\opentest4j\opentest4j\1.2.0\opentest4j-1.2.0.jar;C:\Users\seif\.m2\repository\org\junit\platform\junit-platform-commons\1.9.2\junit-platform-commons-1.9.2.jar;C:\Users\seif\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;C:\Users\seif\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.9.2\junit-jupiter-engine-5.9.2.jar;C:\Users\seif\.m2\repository\org\junit\platform\junit-platform-engine\1.9.2\junit-platform-engine-1.9.2.jar;C:\Users\seif\.m2\repository\org\junit\jupiter\junit-jupiter-params\5.9.2\junit-jupiter-params-5.9.2.jar;C:\Users\seif\.m2\repository\com\google\code\gson\gson\2.10.1\gson-2.10.1.jar;"/>
+    <property name="java.class.path" value="D:\OS-assignment-3\target\test-classes;D:\OS-assignment-3\target\classes;C:\Users\seif\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.9.2\junit-jupiter-api-5.9.2.jar;C:\Users\seif\.m2\repository\org\opentest4j\opentest4j\1.2.0\opentest4j-1.2.0.jar;C:\Users\seif\.m2\repository\org\junit\platform\junit-platform-commons\1.9.2\junit-platform-commons-1.9.2.jar;C:\Users\seif\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;C:\Users\seif\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.9.2\junit-jupiter-engine-5.9.2.jar;C:\Users\seif\.m2\repository\org\junit\platform\junit-platform-engine\1.9.2\junit-platform-engine-1.9.2.jar;C:\Users\seif\.m2\repository\org\junit\jupiter\junit-jupiter-params\5.9.2\junit-jupiter-params-5.9.2.jar;C:\Users\seif\.m2\repository\com\google\code\gson\gson\2.10.1\gson-2.10.1.jar;"/>
     <property name="java.vm.vendor" value="Oracle Corporation"/>
     <property name="sun.arch.data.model" value="64"/>
     <property name="user.variant" value=""/>
@@ -15,9 +15,9 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="US"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk-23\bin"/>
-    <property name="sun.java.command" value="C:\Users\seif\AppData\Local\Temp\surefire5422998911614985665\surefirebooter-20251221124926197_3.jar C:\Users\seif\AppData\Local\Temp\surefire5422998911614985665 2025-12-21T12-49-26_028-jvmRun1 surefire-20251221124926197_1tmp surefire_0-20251221124926197_2tmp"/>
+    <property name="sun.java.command" value="C:\Users\seif\AppData\Local\Temp\surefire2098047821182385003\surefirebooter-20251222005341271_3.jar C:\Users\seif\AppData\Local\Temp\surefire2098047821182385003 2025-12-22T00-53-41_021-jvmRun1 surefire-20251222005341271_1tmp surefire_0-20251222005341271_2tmp"/>
     <property name="jdk.debug" value="release"/>
-    <property name="surefire.test.class.path" value="D:\OS_Assignment\OS-assignment-3\target\test-classes;D:\OS_Assignment\OS-assignment-3\target\classes;C:\Users\seif\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.9.2\junit-jupiter-api-5.9.2.jar;C:\Users\seif\.m2\repository\org\opentest4j\opentest4j\1.2.0\opentest4j-1.2.0.jar;C:\Users\seif\.m2\repository\org\junit\platform\junit-platform-commons\1.9.2\junit-platform-commons-1.9.2.jar;C:\Users\seif\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;C:\Users\seif\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.9.2\junit-jupiter-engine-5.9.2.jar;C:\Users\seif\.m2\repository\org\junit\platform\junit-platform-engine\1.9.2\junit-platform-engine-1.9.2.jar;C:\Users\seif\.m2\repository\org\junit\jupiter\junit-jupiter-params\5.9.2\junit-jupiter-params-5.9.2.jar;C:\Users\seif\.m2\repository\com\google\code\gson\gson\2.10.1\gson-2.10.1.jar;"/>
+    <property name="surefire.test.class.path" value="D:\OS-assignment-3\target\test-classes;D:\OS-assignment-3\target\classes;C:\Users\seif\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.9.2\junit-jupiter-api-5.9.2.jar;C:\Users\seif\.m2\repository\org\opentest4j\opentest4j\1.2.0\opentest4j-1.2.0.jar;C:\Users\seif\.m2\repository\org\junit\platform\junit-platform-commons\1.9.2\junit-platform-commons-1.9.2.jar;C:\Users\seif\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;C:\Users\seif\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.9.2\junit-jupiter-engine-5.9.2.jar;C:\Users\seif\.m2\repository\org\junit\platform\junit-platform-engine\1.9.2\junit-platform-engine-1.9.2.jar;C:\Users\seif\.m2\repository\org\junit\jupiter\junit-jupiter-params\5.9.2\junit-jupiter-params-5.9.2.jar;C:\Users\seif\.m2\repository\com\google\code\gson\gson\2.10.1\gson-2.10.1.jar;"/>
     <property name="sun.cpu.endian" value="little"/>
     <property name="user.home" value="C:\Users\seif"/>
     <property name="user.language" value="en"/>
@@ -25,12 +25,12 @@
     <property name="java.version.date" value="2025-01-21"/>
     <property name="java.home" value="C:\Program Files\Java\jdk-23"/>
     <property name="file.separator" value="\"/>
-    <property name="basedir" value="D:\OS_Assignment\OS-assignment-3"/>
+    <property name="basedir" value="D:\OS-assignment-3"/>
     <property name="java.vm.compressedOopsMode" value="32-bit"/>
     <property name="line.separator" value="&#10;"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
-    <property name="surefire.real.class.path" value="C:\Users\seif\AppData\Local\Temp\surefire5422998911614985665\surefirebooter-20251221124926197_3.jar"/>
+    <property name="surefire.real.class.path" value="C:\Users\seif\AppData\Local\Temp\surefire2098047821182385003\surefirebooter-20251222005341271_3.jar"/>
     <property name="user.script" value=""/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="java.runtime.version" value="23.0.2+7-58"/>
@@ -45,7 +45,7 @@
     <property name="java.vendor.url.bug" value="https://bugreport.java.com/bugreport/"/>
     <property name="java.io.tmpdir" value="C:\Users\seif\AppData\Local\Temp\"/>
     <property name="java.version" value="23.0.2"/>
-    <property name="user.dir" value="D:\OS_Assignment\OS-assignment-3"/>
+    <property name="user.dir" value="D:\OS-assignment-3"/>
     <property name="os.arch" value="amd64"/>
     <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
     <property name="sun.os.patch.level" value=""/>
@@ -58,7 +58,166 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="67.0"/>
   </properties>
-  <testcase name="testSingleProcess" classname="AGSchedulerTest" time="0.047">
+  <testcase name="testSJF" classname="AGSchedulerTest" time="0.136">
+    <system-out><![CDATA[
+Tesing SJF Scheduler
+
+=== Running Test: test_1.json ===
+
+=== Preemptive Shortest Job First (SJF) ===
+Execution Order: P1 P2 P4 P3 P2 P5 P1 
+P1: waiting = 16, turnaround = 24
+P2: waiting = 7, turnaround = 11
+P3: waiting = 4, turnaround = 6
+P4: waiting = 1, turnaround = 2
+P5: waiting = 9, turnaround = 12
+Average waiting time = 7.40
+Average turnaround time = 11.00
+Test passed: test_1.json
+
+=== Running Test: test_2.json ===
+
+=== Preemptive Shortest Job First (SJF) ===
+Execution Order: P5 P2 P4 P1 P3 
+P1: waiting = 12, turnaround = 18
+P2: waiting = 3, turnaround = 6
+P3: waiting = 19, turnaround = 27
+P4: waiting = 7, turnaround = 11
+P5: waiting = 0, turnaround = 2
+Average waiting time = 8.20
+Average turnaround time = 12.80
+Test passed: test_2.json
+
+=== Running Test: test_3.json ===
+
+=== Preemptive Shortest Job First (SJF) ===
+Execution Order: P1 P2 P3 P5 P4 P1 
+P1: waiting = 22, turnaround = 32
+P2: waiting = 1, turnaround = 6
+P3: waiting = 4, turnaround = 7
+P4: waiting = 8, turnaround = 15
+P5: waiting = 3, turnaround = 5
+Average waiting time = 7.60
+Average turnaround time = 13.00
+Test passed: test_3.json
+
+=== Running Test: test_4.json ===
+
+=== Preemptive Shortest Job First (SJF) ===
+Execution Order: P1 P4 P6 P2 P5 P3 
+P1: waiting = 0, turnaround = 12
+P2: waiting = 25, turnaround = 34
+P3: waiting = 45, turnaround = 60
+P4: waiting = 2, turnaround = 8
+P5: waiting = 24, turnaround = 35
+P6: waiting = 2, turnaround = 7
+Average waiting time = 16.33
+Average turnaround time = 26.00
+Test passed: test_4.json
+
+=== Running Test: test_5.json ===
+
+=== Preemptive Shortest Job First (SJF) ===
+Execution Order: P1 P4 P2 P5 P3 
+P1: waiting = 0, turnaround = 3
+P2: waiting = 5, turnaround = 7
+P3: waiting = 11, turnaround = 15
+P4: waiting = 1, turnaround = 2
+P5: waiting = 5, turnaround = 8
+Average waiting time = 4.40
+Average turnaround time = 7.00
+Test passed: test_5.json
+
+=== Running Test: test_6.json ===
+
+=== Preemptive Shortest Job First (SJF) ===
+Execution Order: P1 P2 P4 P6 P5 P3 P1 
+P1: waiting = 40, turnaround = 54
+P2: waiting = 1, turnaround = 8
+P3: waiting = 26, turnaround = 36
+P4: waiting = 3, turnaround = 8
+P5: waiting = 11, turnaround = 19
+P6: waiting = 3, turnaround = 7
+Average waiting time = 14.00
+Average turnaround time = 22.00
+Test passed: test_6.json
+]]></system-out>
+  </testcase>
+  <testcase name="testRR" classname="AGSchedulerTest" time="0.029">
+    <system-out><![CDATA[
+Tesing Round Robin Scheduler
+
+=== Running Test: test_1.json ===
+the waiting time of P1 is 19 and turn around time is 27
+the waiting time of P2 is 14 and turn around time is 18
+the waiting time of P3 is 4 and turn around time is 6
+the waiting time of P4 is 9 and turn around time is 10
+the waiting time of P5 is 17 and turn around time is 20
+
+avg waiting = 12.6
+avg turnaround time = 16.2
+Test passed: test_1.json
+
+=== Running Test: test_2.json ===
+the waiting time of P1 is 16 and turn around time is 22
+the waiting time of P2 is 4 and turn around time is 7
+the waiting time of P3 is 23 and turn around time is 31
+the waiting time of P4 is 24 and turn around time is 28
+the waiting time of P5 is 16 and turn around time is 18
+
+avg waiting = 16.6
+avg turnaround time = 21.2
+Test passed: test_2.json
+
+=== Running Test: test_3.json ===
+the waiting time of P1 is 21 and turn around time is 31
+the waiting time of P2 is 18 and turn around time is 23
+the waiting time of P3 is 10 and turn around time is 13
+the waiting time of P4 is 20 and turn around time is 27
+the waiting time of P5 is 16 and turn around time is 18
+
+avg waiting = 17.0
+avg turnaround time = 22.4
+Test passed: test_3.json
+
+=== Running Test: test_4.json ===
+the waiting time of P1 is 38 and turn around time is 50
+the waiting time of P2 is 26 and turn around time is 35
+the waiting time of P3 is 58 and turn around time is 73
+the waiting time of P4 is 49 and turn around time is 55
+the waiting time of P5 is 57 and turn around time is 68
+the waiting time of P6 is 32 and turn around time is 37
+
+avg waiting = 43.333333333333336
+avg turnaround time = 53.0
+Test passed: test_4.json
+
+=== Running Test: test_5.json ===
+the waiting time of P1 is 7 and turn around time is 10
+the waiting time of P2 is 2 and turn around time is 4
+the waiting time of P3 is 12 and turn around time is 16
+the waiting time of P4 is 8 and turn around time is 9
+the waiting time of P5 is 13 and turn around time is 16
+
+avg waiting = 8.4
+avg turnaround time = 11.0
+Test passed: test_5.json
+
+=== Running Test: test_6.json ===
+the waiting time of P1 is 44 and turn around time is 58
+the waiting time of P2 is 18 and turn around time is 25
+the waiting time of P3 is 45 and turn around time is 55
+the waiting time of P4 is 36 and turn around time is 41
+the waiting time of P5 is 35 and turn around time is 43
+the waiting time of P6 is 24 and turn around time is 28
+
+avg waiting = 33.666666666666664
+avg turnaround time = 41.666666666666664
+Test passed: test_6.json
+]]></system-out>
+    <system-err><![CDATA[P1 P2 P3 P1 P4 P5 P2 P1 P5 P1 P1 P2 P3 P4 P5 P1 P3 P4 P3 P1 P2 P1 P3 P4 P2 P5 P1 P4 P1 P2 P1 P3 P4 P2 P5 P1 P6 P3 P4 P5 P3 P5 P1 P2 P3 P1 P4 P5 P3 P5 P1 P2 P1 P3 P4 P2 P5 P1 P6 P3 P4 P5 P1 P3 ]]></system-err>
+  </testcase>
+  <testcase name="testSingleProcess" classname="AGSchedulerTest" time="0.013">
     <system-out><![CDATA[
 Execution Order:
 P1 
@@ -68,8 +227,10 @@ Average waiting time = 0.0
 Average turnaround time = 5.0
 ]]></system-out>
   </testcase>
-  <testcase name="testAG_test1" classname="AGSchedulerTest" time="0.037">
+  <testcase name="testAG_test1" classname="AGSchedulerTest" time="0.057">
     <system-out><![CDATA[
+Tesing AG Scheduler
+
 === Running Test: AG_test1.json ===
 
 Execution Order:
@@ -81,11 +242,8 @@ P4 waiting time = 19 and turnaround time = 23 Quantum history -> 6 8 0
 
 Average waiting time = 13.0
 Average turnaround time = 22.5
-✓ Test passed: AG_test1.json
-]]></system-out>
-  </testcase>
-  <testcase name="testAG_test2" classname="AGSchedulerTest" time="0.011">
-    <system-out><![CDATA[
+Test passed: AG_test1.json
+
 === Running Test: AG_test2.json ===
 
 Execution Order:
@@ -98,11 +256,8 @@ P5 waiting time = 36 and turnaround time = 45 Quantum history -> 4 6 8 0
 
 Average waiting time = 21.6
 Average turnaround time = 30.6
-✓ Test passed: AG_test2.json
-]]></system-out>
-  </testcase>
-  <testcase name="testAG_test3" classname="AGSchedulerTest" time="0.003">
-    <system-out><![CDATA[
+Test passed: AG_test2.json
+
 === Running Test: AG_test3.json ===
 
 Execution Order:
@@ -116,11 +271,8 @@ P6 waiting time = 3 and turnaround time = 9 Quantum history -> 3 5 0
 
 Average waiting time = 8.166666666666666
 Average turnaround time = 14.833333333333334
-✓ Test passed: AG_test3.json
-]]></system-out>
-  </testcase>
-  <testcase name="testAG_test4" classname="AGSchedulerTest" time="0.018">
-    <system-out><![CDATA[
+Test passed: AG_test3.json
+
 === Running Test: AG_test4.json ===
 
 Execution Order:
@@ -133,11 +285,8 @@ P5 waiting time = 2 and turnaround time = 5 Quantum history -> 9 0
 
 Average waiting time = 1.4
 Average turnaround time = 4.8
-✓ Test passed: AG_test4.json
-]]></system-out>
-  </testcase>
-  <testcase name="testAG_test5" classname="AGSchedulerTest" time="0.013">
-    <system-out><![CDATA[
+Test passed: AG_test4.json
+
 === Running Test: AG_test5.json ===
 
 Execution Order:
@@ -151,11 +300,8 @@ P6 waiting time = 88 and turnaround time = 100 Quantum history -> 4 6 8 11 0
 
 Average waiting time = 50.0
 Average turnaround time = 68.66666666666667
-✓ Test passed: AG_test5.json
-]]></system-out>
-  </testcase>
-  <testcase name="testAG_test6" classname="AGSchedulerTest" time="0.009">
-    <system-out><![CDATA[
+Test passed: AG_test5.json
+
 === Running Test: AG_test6.json ===
 
 Execution Order:
@@ -170,8 +316,81 @@ P7 waiting time = 37 and turnaround time = 45 Quantum history -> 9 12 17 0
 
 Average waiting time = 24.0
 Average turnaround time = 34.0
-✓ Test passed: AG_test6.json
+Test passed: AG_test6.json
 ]]></system-out>
   </testcase>
-  <testcase name="testEmptyProcessList" classname="AGSchedulerTest" time="0.004"/>
+  <testcase name="testPriority" classname="AGSchedulerTest" time="0.047">
+    <system-out><![CDATA[
+Tesing Priority Scheduler
+
+=== Running Test: test_1.json ===
+the waiting time of P2 is 1 and turn around time is 5
+the waiting time of P4 is 6 and turn around time is 7
+the waiting time of P1 is 9 and turn around time is 17
+the waiting time of P3 is 16 and turn around time is 18
+the waiting time of P5 is 17 and turn around time is 20
+P1-P2-P1-P4-P1-P3-P5-
+avg waiting = 9.8
+avg turnaround time = 13.4
+Test passed: test_1.json
+
+=== Running Test: test_2.json ===
+the waiting time of P2 is 0 and turn around time is 3
+the waiting time of P1 is 12 and turn around time is 18
+the waiting time of P3 is 14 and turn around time is 22
+the waiting time of P4 is 23 and turn around time is 27
+the waiting time of P5 is 28 and turn around time is 30
+P2-P3-P1-P3-P1-P3-P4-P5-
+avg waiting = 15.4
+avg turnaround time = 20.0
+Test passed: test_2.json
+
+=== Running Test: test_3.json ===
+the waiting time of P2 is 1 and turn around time is 6
+the waiting time of P3 is 5 and turn around time is 8
+the waiting time of P1 is 17 and turn around time is 27
+the waiting time of P4 is 16 and turn around time is 23
+the waiting time of P5 is 22 and turn around time is 24
+P1-P2-P4-P3-P4-P1-P4-P5-
+avg waiting = 12.2
+avg turnaround time = 17.6
+Test passed: test_3.json
+
+=== Running Test: test_4.json ===
+the waiting time of P1 is 8 and turn around time is 20
+the waiting time of P2 is 18 and turn around time is 27
+the waiting time of P3 is 21 and turn around time is 36
+the waiting time of P4 is 34 and turn around time is 40
+the waiting time of P5 is 38 and turn around time is 49
+the waiting time of P6 is 47 and turn around time is 52
+P1-P3-P1-P2-P3-P4-P5-P6-
+avg waiting = 27.666666666666668
+avg turnaround time = 37.333333333333336
+Test passed: test_4.json
+
+=== Running Test: test_5.json ===
+the waiting time of P2 is 1 and turn around time is 3
+the waiting time of P1 is 7 and turn around time is 10
+the waiting time of P3 is 8 and turn around time is 12
+the waiting time of P4 is 12 and turn around time is 13
+the waiting time of P5 is 13 and turn around time is 16
+P1-P2-P1-P3-P1-P3-P4-P5-
+avg waiting = 8.2
+avg turnaround time = 10.8
+Test passed: test_5.json
+
+=== Running Test: test_6.json ===
+the waiting time of P2 is 7 and turn around time is 14
+the waiting time of P1 is 16 and turn around time is 30
+the waiting time of P3 is 25 and turn around time is 35
+the waiting time of P4 is 29 and turn around time is 34
+the waiting time of P5 is 32 and turn around time is 40
+the waiting time of P6 is 38 and turn around time is 42
+P1-P2-P4-P2-P4-P1-P3-P4-P5-P6-
+avg waiting = 24.5
+avg turnaround time = 32.5
+Test passed: test_6.json
+]]></system-out>
+  </testcase>
+  <testcase name="testEmptyProcessList" classname="AGSchedulerTest" time="0.0"/>
 </testsuite>

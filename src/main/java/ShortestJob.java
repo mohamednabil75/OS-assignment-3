@@ -1,10 +1,33 @@
 import java.util.*;
 
+class Result {
+    List<String> executionOrder;
+    List<processResult2> processResults;
+    double averageWaitingTime;
+    double averageTurnaroundTime;
+}
+
+class processResult2 {
+    String name;
+    int waitingTime;
+    int turnaroundTime;
+
+    processResult2(Process p) {
+        this.name = p.name;
+        this.waitingTime = p.waitingtime;
+        this.turnaroundTime = p.turnaroundtime;
+    }
+}
+
 class ShortestJob implements CpuScheduling {
     private int contextSwitch = 0;
+    List<Process> processes ;
+    List<String> order ; 
 
-    public ShortestJob(int contextSwitch) {
+    public ShortestJob(int contextSwitch ,List<Process> processes) {
         this.contextSwitch = contextSwitch;
+        this.processes = processes ;
+        order = new ArrayList<>();
     }
 
     public ShortestJob() {
@@ -12,7 +35,7 @@ class ShortestJob implements CpuScheduling {
     }
 
     @Override
-    public void process(List<Process> processes) {
+    public void process() {
         if (processes == null || processes.isEmpty()) {
             System.out.println("No processes to schedule.");
             return;
@@ -51,7 +74,6 @@ class ShortestJob implements CpuScheduling {
             }
         );
 
-        List<String> order = new ArrayList<>();
         String lastExecuted = "";
 
         int time = 0;
@@ -145,4 +167,50 @@ class ShortestJob implements CpuScheduling {
         System.out.printf("Average waiting time = %.2f%n", totalWait / processes.size());
         System.out.printf("Average turnaround time = %.2f%n", totalTurn / processes.size());
     }
+    public Result getResults() {
+    Result result = new Result();
+
+    if (order == null || order.isEmpty()) {
+        result.executionOrder = new ArrayList<>();
+        result.processResults = new ArrayList<>();
+        result.averageWaitingTime = 0.0;
+        result.averageTurnaroundTime = 0.0;
+        return result;
+    }
+
+    List<String> exec = new ArrayList<>();
+    exec.add(order.get(0));
+    for (int i = 1; i < order.size(); i++) {
+        if (!order.get(i).equals(order.get(i - 1))) {
+            exec.add(order.get(i));
+        }
+    }
+    result.executionOrder = exec;
+
+    if (processes != null && !processes.isEmpty()) {
+        processes.sort((a, b) -> a.name.compareTo(b.name));
+        List<processResult2> pr = new ArrayList<>();
+
+        int totalWaiting = 0, totalTurnaround = 0;
+
+        for (Process p : processes) {
+            pr.add(new processResult2(p));
+            totalWaiting += p.waitingtime;
+            totalTurnaround += p.turnaroundtime;
+        }
+
+        result.processResults = pr;
+        result.averageWaitingTime = (double) totalWaiting / processes.size();
+        result.averageTurnaroundTime = (double) totalTurnaround / processes.size();
+    } else {
+        result.processResults = new ArrayList<>();
+        result.averageWaitingTime = 0.0;
+        result.averageTurnaroundTime = 0.0;
+    }
+
+    return result;
+}    
+
 }
+
+
